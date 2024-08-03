@@ -58,7 +58,7 @@ public class TermuxApiReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        TermuxAPIApplication.setLogConfig(context, false);
+        //TermuxAPIApplication.setLogConfig(context, false);
         Logger.logDebug(LOG_TAG, "Intent Received:\n" + IntentUtils.getIntentString(intent));
 
         try {

@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion project.properties.compileSdkVersion.toInteger()
@@ -6,7 +6,7 @@ android {
     def apkVersionTag = System.getenv("TERMUX_API_APK_VERSION_TAG") ?: ""
 
     defaultConfig {
-        applicationId "com.termux.api"
+        //applicationId "com.termux.api"
         minSdkVersion project.properties.minSdkVersion.toInteger()
         targetSdkVersion project.properties.targetSdkVersion.toInteger()
         versionCode 51
@@ -46,7 +46,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    applicationVariants.all { variant ->
+    /*applicationVariants.all { variant ->
         variant.outputs.all { output ->
             if (variant.buildType.name == "debug") {
                 outputFileName = new File("termux-api_" + (apkVersionTag ? apkVersionTag : "debug") + ".apk")
@@ -54,7 +54,7 @@ android {
                 outputFileName = new File("termux-api_" + (apkVersionTag ? apkVersionTag : "release") + ".apk")
             }
         }
-    }
+    }*/
 
     packagingOptions {
         // Remove terminal-emulator and termux-shared JNI libs added via termux-shared dependency
