@@ -93,7 +93,7 @@ public class TermuxApiReceiver extends BroadcastReceiver {
             case "Brightness":
                 if (!Settings.System.canWrite(context)) {
                     TermuxApiPermissionActivity.checkAndRequestPermissions(context, intent, Manifest.permission.WRITE_SETTINGS);
-                    Toast.makeText(context, "Please enable permission for Termux:API", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Please enable permission for Nix:API", Toast.LENGTH_LONG).show();
 
                     // user must enable WRITE_SETTINGS permission this special way
                     Intent settingsIntent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS);
@@ -172,7 +172,7 @@ public class TermuxApiReceiver extends BroadcastReceiver {
                 String flat = Settings.Secure.getString(context.getContentResolver(), "enabled_notification_listeners");
                 final boolean NotificationServiceEnabled = flat != null && flat.contains(cn.flattenToString());
                 if (!NotificationServiceEnabled) {
-                    Toast.makeText(context,"Please give Termux:API Notification Access", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context,"Please give Nix:API Notification Access", Toast.LENGTH_LONG).show();
                     context.startActivity(new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS").addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                 } else {
                     NotificationListAPI.onReceive(this, context, intent);

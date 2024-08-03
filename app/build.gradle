@@ -7,6 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.termux.api"
+        applicationIdSuffix ".nix"
         minSdkVersion project.properties.minSdkVersion.toInteger()
         targetSdkVersion project.properties.targetSdkVersion.toInteger()
         versionCode 51
@@ -15,9 +16,9 @@ android {
         if (appVersionName) versionName = appVersionName
         validateVersionName(versionName)
 
-        manifestPlaceholders.TERMUX_PACKAGE_NAME = "com.termux"
-        manifestPlaceholders.TERMUX_APP_NAME = "Termux"
-        manifestPlaceholders.TERMUX_API_APP_NAME = "Termux:API"
+        manifestPlaceholders.TERMUX_PACKAGE_NAME = "com.termux.nix"
+        manifestPlaceholders.TERMUX_APP_NAME = "Nix"
+        manifestPlaceholders.TERMUX_API_APP_NAME = "Nix:API"
     }
 
     signingConfigs {
@@ -49,9 +50,9 @@ android {
     applicationVariants.all { variant ->
         variant.outputs.all { output ->
             if (variant.buildType.name == "debug") {
-                outputFileName = new File("termux-api_" + (apkVersionTag ? apkVersionTag : "debug") + ".apk")
+                outputFileName = new File("termux-nix-api_" + (apkVersionTag ? apkVersionTag : "debug") + ".apk")
             } else if (variant.buildType.name == "release") {
-                outputFileName = new File("termux-api_" + (apkVersionTag ? apkVersionTag : "release") + ".apk")
+                outputFileName = new File("termux-nix-api_" + (apkVersionTag ? apkVersionTag : "release") + ".apk")
             }
         }
     }
